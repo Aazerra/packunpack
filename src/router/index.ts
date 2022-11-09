@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import DashboardView from "../views/DashboardView.vue";
 import LoginView from "../views/LoginView.vue";
+import { useMainStore } from "@/stores/main";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -19,9 +20,9 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to, from) => {
-    const sid = localStorage.getItem("sid");
-    if (!sid && to.name !== "login") return { name: "login" };
-    if (sid && to.name === "login") return { from };
+    const { isLogin } = useMainStore();
+    if (!isLogin && to.name !== "login") return { name: "login" };
+    if (isLogin && to.name === "login") return { from };
 });
 
 export default router;
