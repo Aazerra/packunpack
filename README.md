@@ -1,6 +1,5 @@
 # PackUnpack
-
-This template should help get you started developing with Vue 3 in Vite.
+### this is a unoffical alternative of [PackUnpack](https://github.com/AlonHor/packunpack-client) 
 
 ## Recommended IDE Setup
 
